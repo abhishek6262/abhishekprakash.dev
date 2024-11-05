@@ -1,0 +1,23 @@
+<header th:fragment="header">
+    <div class="container mx-auto p-5 md:p-10">
+        <div class="flex justify-between items-center">
+            <div class="flex">
+                <h1>
+                    ✌ <a class="border-b-2 pb-1 font-semibold transition-colors hover:border-b-black" href="/">Abhishek
+                    Prakash</a>
+                </h1>
+
+                <h2 class="hidden md:block ml-2 text-gray-500">
+                    serving Internet since 2021
+                </h2>
+            </div>
+
+            <div class="hidden md:flex md:gap-4">
+                <a class="border-b-2 pb-1 transition-colors hover:border-b-black"
+                   th:href="@{/blogs}">Blogs</a>
+                <a class="border-b-2 pb-1 transition-colors hover:border-b-black"
+                   th:href="@{/recommended-books}">Recommended books</a>
+            </div>
+        </div>
+    </div>
+</header>

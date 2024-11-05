@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title th:text="'Abhishek Prakash | ' + ${blogTitle}"></title>
+    <link rel="stylesheet" th:href="@{/styles/main.css}">
+</head>
+
+<body class="flex h-dvh flex-col bg-white">
+<header th:replace="~{fragments/header::header}"></header>
+
+<main class="flex-1">
+    <section class="container mx-auto">
+        <main class="max-w-3xl mx-auto">
+            <div class="px-5 my-4 md:mb-8 md:mt-0 md:px-10">
+                <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black" th:href="@{/blogs}"><<
+                    Back</a>
+                -
+                Written
+                By Abhishek Prakash
+            </div>
+
+            <article class="px-5 mt-8 md:mt-0 md:px-10">
+                <div th:replace="~{${blogHtmlTemplatePath}}"></div>
+            </article>
+        </main>
+    </section>
+</main>
+
+<footer th:replace="~{fragments/footer::footer}"></footer>
+</body>
+</html>

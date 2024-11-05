@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Abhishek Prakash | Blog</title>
+    <link rel="stylesheet" th:href="@{/styles/main.css}">
+</head>
+
+<body class="flex h-dvh flex-col bg-white">
+<header th:replace="~{fragments/header::header}"></header>
+
+<main class="flex-1">
+    <section class="container mx-auto">
+        <div class="grid grid-cols-1">
+            <div class="px-5 mt-8 md:mt-0 md:px-10">
+                <div class="max-w-2xl">
+                    <h1 class="font-semibold text-gray-900 title-font text-2xl">Blogs</h1>
+                    <p class="mt-3 text-gray-500">I share my thoughts, insights, and discoveries on topics that inspire
+                        me. Here, you’ll find all the blogs I've written so far.</p>
+                </div>
+
+                <div class="max-w-2xl mt-5">
+                    <ul class="list-disc leading-loose mt-5 ml-5">
+                        <li
+                                class="mb-2"
+                                th:each="blogIndex : ${blogIndices}"
+                        >
+                            <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black"
+                               th:href="@{/blogs/{slug}(slug=${blogIndex.slug})}"
+                               th:text="${blogIndex.title}"
+                            ></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer th:replace="~{fragments/footer::footer}"></footer>
+</body>
+</html>

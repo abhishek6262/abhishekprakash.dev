@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Abhishek Prakash | Recommended Books</title>
+    <link rel="stylesheet" th:href="@{/styles/main.css}">
+</head>
+
+<body class="flex h-dvh flex-col bg-white">
+<header th:replace="~{fragments/header::header}"></header>
+
+<main class="flex-1">
+    <section class="container mx-auto">
+        <div class="grid grid-cols-1">
+            <div class="px-5 mt-8 md:mt-0 md:px-10">
+                <div class="max-w-2xl">
+                    <h1 class="font-semibold text-gray-900 title-font text-2xl">Recommended Books</h1>
+                    <p class="mt-3 text-gray-500">I dive into books across a range of topics that spark my
+                        curiosity. Here are some of my favorites.</p>
+                </div>
+
+                <ul class="list-disc leading-loose mt-5 ml-5">
+                    <li class="mb-2">
+                        <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black"
+                           href="https://en.wikipedia.org/wiki/Code:_The_Hidden_Language_of_Computer_Hardware_and_Software"
+                           target="_blank">Code: The Hidden Language of Computer Hardware and Software</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black"
+                           href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/"
+                           target="_blank">Designing Data-Intensive Applications</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black"
+                           href="https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF"
+                           target="_blank">System Design Interview - An Insider's Guide</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black"
+                           href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882"
+                           target="_blank">Clean Code: A Handbook of Agile Software Craftsmanship</a>
+                    </li>
+
+                    <li class="mb-2">
+                        <a class="border-b-2 py-2 md:pb-1 transition-colors hover:border-b-black"
+                           href="https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X"
+                           target="_blank">The Pragmatic Programmer</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer th:replace="~{fragments/footer::footer}"></footer>
+</body>
+</html>
