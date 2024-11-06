@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>dev.abhishekprakash</groupId>
-    <artifactId>personal-website</artifactId>
+    <artifactId>staterkit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>personal-website</name>
-    <description>personal-website</description>
+    <name>staterkit</name>
+    <description>staterkit</description>
     <url/>
     <licenses>
         <license/>

@@ -2,7 +2,7 @@
 module.exports = {
     content: [
         "../resources/templates/**/*.{html,js,ts}",
-        "../java/dev/abhishekprakash/personalwebsite/Core/Markdown/MarkdownToHtmlConverter.java",
+        "../java/dev/abhishekprakash/starterkit/Core/Renderer/**/*.java",
     ],
     theme: {
         extend: {},
