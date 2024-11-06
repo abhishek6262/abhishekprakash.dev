@@ -34,10 +34,10 @@ public class BlogsConfig {
         // the application is packaged in production build then we can't
         // directly access the markdowns from the jar file without converting
         // the files into a stream.
-        return createMarkdownsTempCopy();
+        return extractMarkdownsIntoTempDirectory();
     }
 
-    private Path createMarkdownsTempCopy() throws IOException {
+    private Path extractMarkdownsIntoTempDirectory() throws IOException {
         Path markdownsDir = FileSystem.createTempDirectory("markdowns");
 
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(resourceLoader);
