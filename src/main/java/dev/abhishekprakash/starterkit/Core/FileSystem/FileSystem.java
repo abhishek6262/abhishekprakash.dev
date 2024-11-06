@@ -18,4 +18,8 @@ public class FileSystem {
         FileUtils.deleteDirectory(dir.toFile());
     }
 
+    public static Path createTempDirectory(String prefix) throws IOException {
+        return Files.createTempDirectory(prefix);
+    }
+
 }
