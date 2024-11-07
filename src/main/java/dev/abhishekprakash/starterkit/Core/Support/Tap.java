@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Tap<T> {
 
-    private T data;
+    private final T data;
 
     private final List<CheckedConsumer<T>> consumers = new ArrayList<>();
 
