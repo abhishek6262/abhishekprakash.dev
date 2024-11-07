@@ -18,6 +18,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 
 @Component
 public class GenerateBlogAction implements Actionable {
@@ -38,14 +39,23 @@ public class GenerateBlogAction implements Actionable {
                 .execute();
     }
 
-    private List<RenderedDocument> renderMarkdownAsHtml() throws IOException {
-        List<RenderedDocument> renderedDocuments = new ArrayList<>();
+    private List<RenderedDocument> renderMarkdownAsHtml() throws InterruptedException {
+        ExecutorService executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
+        List<Callable<RenderedDocument>> renderedDocumentsCallables = new ArrayList<>();
 
         for (File markdown : new MarkdownIterable(blogsMarkdownDirectoryPath)) {
-            renderedDocuments.add(new MarkdownToHtmlRenderer(markdown).render());
+            renderedDocumentsCallables.add(() -> new MarkdownToHtmlRenderer(markdown).render());
         }
 
-        return renderedDocuments;
+        List<Future<RenderedDocument>> renderedDocumentsFutures = executorService.invokeAll(renderedDocumentsCallables);
+
+        return renderedDocumentsFutures.stream().map(renderedDocumentFuture -> {
+            try {
+                return renderedDocumentFuture.get();
+            } catch (ExecutionException | InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }).toList();
     }
 
     private void storeRenderedDocumentAsHtml(List<RenderedDocument> renderedDocuments) throws IOException {
